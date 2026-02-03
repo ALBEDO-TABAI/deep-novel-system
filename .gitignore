@@ -1,0 +1,30 @@
+# Project-specific (don't include user's drafts)
+assets/template/drafts/*
+assets/template/feedback/*
+assets/template/memory/*
+assets/template/plans/*
+assets/template/references/*
+!assets/template/*/README.md
+!assets/template/*/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
