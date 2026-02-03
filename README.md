@@ -34,7 +34,7 @@ This skill has been tested on **Antigravity** with excellent results. Recommende
 - 🧠 **Memory Management System** - Cross-chapter character state and relationship tracking
 - 🔄 **Feedback Loop Mechanism** - Iterative quality optimization
 - 📁 **Project Templates** - Quick initialization for new novel projects
-- 🎭 **Multi-genre Support** - Suitable for erotic fiction, light novels, deep narratives, etc.
+- 🎭 **Multi-genre Support** - Suitable for Horror fiction, erotic fiction, light novels, deep narratives, etc.
 
 ## 🚀 Quick Start
 
