@@ -1,13 +1,29 @@
 # Deep Novel System (深度小说系统)
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Platform-Claude%20Code%20%7C%20Antigravity%20%7C%20Copilot-blue" alt="Platform">
+  <img src="https://img.shields.io/badge/Type-Claude%20Skill-8A2BE2" alt="Type">
+  <img src="https://img.shields.io/badge/Tested%20on-Antigravity-blue" alt="Tested">
   <img src="https://img.shields.io/badge/Language-中文-red" alt="Language">
-  <img src="https://img.shields.io/badge/Type-AI%20Agent%20Skill-green" alt="Type">
   <img src="https://img.shields.io/badge/License-MIT-yellow" alt="License">
 </p>
 
-一个专为 AI 代理设计的高质量小说创作框架，特别擅长需要详细感官描述、复杂情节管理和一致角色心理的叙事类型。
+一个专为 **Claude** 设计的高质量小说创作技能（Skill），特别擅长需要详细感官描述、复杂情节管理和一致角色心理的叙事类型。
+
+## 🎯 关于本项目
+
+这是一个 **Claude Skill**，遵循 [Agent Skills](https://github.com/anthropics/agent-skills) 开放标准。Skill 是一种可复用的 AI 代理能力模块，通过结构化的指令和工作流扩展 AI 的专业能力。
+
+### 推荐使用环境
+
+本技能已在 **Antigravity** 中测试，效果理想。推荐配置：
+
+| IDE / 客户端 | 推荐模型 |
+|-------------|---------|
+| **Antigravity** (Google DeepMind) | Gemini 3 Pro |
+| **Cursor** | Claude 4.5 Opus |
+| **Claude Code** | Claude 4.5 Opus |
+
+> 💡 **提示**：使用更强大的模型可以获得更好的长篇叙事连贯性和细节描写效果。
 
 ## ✨ 特性
 
@@ -25,7 +41,7 @@
 
 ```bash
 cd /path/to/your/project/.agent/skills/
-git clone https://github.com/YOUR_USERNAME/deep-novel-system.git
+git clone https://github.com/ALBEDO-TABAI/deep-novel-system.git
 ```
 
 ### 使用
@@ -95,12 +111,13 @@ python scripts/init_novel.py <目标目录>
 
 ## 🤝 兼容性
 
-此技能遵循 [Agent Skills](https://jesseobrien.me/blog/agent-skills/) 开放标准，兼容：
+此技能遵循 [Agent Skills](https://github.com/anthropics/agent-skills) 开放标准，理论上兼容所有支持该标准的 AI 代理：
 
+- **Antigravity** (Google DeepMind) ✅ 已测试
 - Claude Code
-- Antigravity (Google Deepmind)
+- Cursor
 - GitHub Copilot
-- 其他支持 Agent Skills 的 AI 代理
+- 其他支持 Agent Skills 的客户端
 
 ## 📄 许可证
 
