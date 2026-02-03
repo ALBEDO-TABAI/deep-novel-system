@@ -1,128 +1,132 @@
-# Deep Novel System (深度小说系统)
+# Deep Novel System
+
+<p align="center">
+  <a href="README.md">English</a> | <a href="README_zh.md">中文</a>
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Type-Claude%20Skill-8A2BE2" alt="Type">
   <img src="https://img.shields.io/badge/Tested%20on-Antigravity-blue" alt="Tested">
-  <img src="https://img.shields.io/badge/Language-中文-red" alt="Language">
   <img src="https://img.shields.io/badge/License-MIT-yellow" alt="License">
 </p>
 
-一个专为 **Claude** 设计的高质量小说创作技能（Skill），特别擅长需要详细感官描述、复杂情节管理和一致角色心理的叙事类型。
+A high-quality novel writing skill designed for **Claude**, specializing in narratives that require detailed sensory descriptions, complex plot management, and consistent character psychology.
 
-## 🎯 关于本项目
+## 🎯 About
 
-这是一个 **Claude Skill**，遵循 [Agent Skills](https://github.com/anthropics/agent-skills) 开放标准。Skill 是一种可复用的 AI 代理能力模块，通过结构化的指令和工作流扩展 AI 的专业能力。
+This is a **Claude Skill** following the [Agent Skills](https://github.com/anthropics/agent-skills) open standard. Skills are reusable AI agent capability modules that extend AI's professional abilities through structured instructions and workflows.
 
-### 推荐使用环境
+### Recommended Environment
 
-本技能已在 **Antigravity** 中测试，效果理想。推荐配置：
+This skill has been tested on **Antigravity** with excellent results. Recommended configurations:
 
-| IDE / 客户端 | 推荐模型 |
-|-------------|---------|
+| IDE / Client | Recommended Model |
+|-------------|-------------------|
 | **Antigravity** (Google DeepMind) | Gemini 3 Pro |
 | **Cursor** | Claude 4.5 Opus |
 | **Claude Code** | Claude 4.5 Opus |
 
-> 💡 **提示**：使用更强大的模型可以获得更好的长篇叙事连贯性和细节描写效果。
+> 💡 **Tip**: Using more powerful models yields better long-form narrative coherence and detailed descriptions.
 
-## ✨ 特性
+## ✨ Features
 
-- 📖 **结构化写作工作流** - 从大纲到章节的完整创作流程
-- 🧠 **记忆管理系统** - 跨章节的角色状态、关系追踪
-- 🔄 **反馈循环机制** - 迭代优化写作质量
-- 📁 **项目模板** - 快速初始化新小说项目
-- 🎭 **多类型支持** - 适用于色情小说、轻小说、深度叙事等
+- 📖 **Structured Writing Workflow** - Complete creation process from outline to chapters
+- 🧠 **Memory Management System** - Cross-chapter character state and relationship tracking
+- 🔄 **Feedback Loop Mechanism** - Iterative quality optimization
+- 📁 **Project Templates** - Quick initialization for new novel projects
+- 🎭 **Multi-genre Support** - Suitable for erotic fiction, light novels, deep narratives, etc.
 
-## 🚀 快速开始
+## 🚀 Quick Start
 
-### 安装
+### Installation
 
-将此仓库克隆到你的 `.agent/skills/` 目录：
+Clone this repository to your `.agent/skills/` directory:
 
 ```bash
 cd /path/to/your/project/.agent/skills/
 git clone https://github.com/ALBEDO-TABAI/deep-novel-system.git
 ```
 
-### 使用
+### Usage
 
-在 AI 对话中说：
+In your AI conversation, say:
 
-> "我想开始写小说"
+> "I want to start writing a novel"
 
-或
+or
 
-> "继续写作 `<项目路径>`"
+> "Continue writing `<project path>`"
 
-## 📂 目录结构
+## 📂 Directory Structure
 
 ```
 deep-novel-system/
-├── SKILL.md              # 主技能入口文件
-├── README.md             # 本文件
-├── LICENSE               # MIT 许可证
+├── SKILL.md              # Main skill entry file
+├── README.md             # This file (English)
+├── README_zh.md          # Chinese version
+├── LICENSE               # MIT License
 ├── assets/
-│   └── template/         # 项目模板
-│       ├── config/       # 写作配置
-│       ├── drafts/       # 章节草稿
-│       ├── memory/       # 记忆文件
-│       ├── plans/        # 大纲计划
-│       ├── references/   # 参考资料
-│       └── feedback/     # 反馈记录
-├── references/           # 工作流参考文档
-│   ├── workflow.md       # 长篇小说写作流程
+│   └── template/         # Project template
+│       ├── config/       # Writing configuration
+│       ├── drafts/       # Chapter drafts
+│       ├── memory/       # Memory files
+│       ├── plans/        # Outline plans
+│       ├── references/   # Reference materials
+│       └── feedback/     # Feedback records
+├── references/           # Workflow reference docs
+│   ├── workflow.md       # Long novel writing process
 │   ├── memory_management.md
 │   ├── reference_usage.md
 │   ├── feedback_loop.md
 │   └── onboarding.md
 └── scripts/
-    └── init_novel.py     # 项目初始化脚本
+    └── init_novel.py     # Project initialization script
 ```
 
-## 📚 工作流
+## 📚 Workflows
 
-### 1. 长篇小说写作流程
+### 1. Long Novel Writing Process
 
-详见 [workflow.md](references/workflow.md)
+See [workflow.md](references/workflow.md)
 
-**关键阶段**：
-1. **输入分析** - 阅读以前的章节、大纲和要求
-2. **起草** - 分块编写内容（例如 `CH01 SEC01`）
-3. **审查与润色** - 根据风格指南进行检查
+**Key Stages**:
+1. **Input Analysis** - Read previous chapters, outlines, and requirements
+2. **Drafting** - Write content in blocks (e.g., `CH01 SEC01`)
+3. **Review & Polish** - Check against style guidelines
 
-### 2. 记忆管理
+### 2. Memory Management
 
-详见 [memory_management.md](references/memory_management.md)
+See [memory_management.md](references/memory_management.md)
 
-- 在重大事件后更新 `memory/` 文件
-- 维护角色状态和关系图
+- Update `memory/` files after major events
+- Maintain character states and relationship maps
 
-### 3. 反馈循环
+### 3. Feedback Loop
 
-详见 [feedback_loop.md](references/feedback_loop.md)
+See [feedback_loop.md](references/feedback_loop.md)
 
-## 🛠️ 项目初始化
+## 🛠️ Project Initialization
 
-使用初始化脚本创建新项目：
+Create a new project using the initialization script:
 
 ```bash
-python scripts/init_novel.py <目标目录>
+python scripts/init_novel.py <target_directory>
 ```
 
-## 🤝 兼容性
+## 🤝 Compatibility
 
-此技能遵循 [Agent Skills](https://github.com/anthropics/agent-skills) 开放标准，理论上兼容所有支持该标准的 AI 代理：
+This skill follows the [Agent Skills](https://github.com/anthropics/agent-skills) open standard and is theoretically compatible with all AI agents supporting this standard:
 
-- **Antigravity** (Google DeepMind) ✅ 已测试
+- **Antigravity** (Google DeepMind) ✅ Tested
 - Claude Code
 - Cursor
 - GitHub Copilot
-- 其他支持 Agent Skills 的客户端
+- Other Agent Skills compatible clients
 
-## 📄 许可证
+## 📄 License
 
 [MIT License](LICENSE)
 
-## 🙏 致谢
+## 🙏 Acknowledgments
 
-灵感来自 [obra/superpowers](https://github.com/obra/superpowers) 框架。
+Inspired by the [obra/superpowers](https://github.com/obra/superpowers) framework.
