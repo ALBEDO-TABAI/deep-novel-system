@@ -26,6 +26,8 @@ This skill has been tested on **Antigravity** with excellent results. Recommende
 | **Cursor** | Claude 4.5 Opus |
 | **Claude Code** | Claude 4.5 Opus |
 
+Also tested with solid writing quality: **GLM-5.1**, **MiMo-V2.5-Pro** — works in any Skills-compatible client.
+
 > 💡 **Tip**: Using more powerful models yields better long-form narrative coherence and detailed descriptions.
 
 ## ✨ Features
@@ -80,11 +82,12 @@ deep-novel-system/
 │   ├── memory_management.md
 │   ├── reference_usage.md
 │   ├── feedback_loop.md
-│   └── onboarding.md
-├── references/           # User-supplied style samples / analyses
+│   └── onboarding.md     # First-time interactive setup flow
 └── scripts/
     └── init_novel.py     # Project initialization script
 ```
+
+> Note: `references/` only lives **inside each user project** (copied from the template) — it holds your own style samples and is not part of the skill repo itself.
 
 ## 📚 Workflows
 
@@ -115,13 +118,27 @@ See [docs/feedback_loop.md](docs/feedback_loop.md)
 
 ## 🛠️ Project Initialization
 
-Create a new project using the initialization script:
+Two ways to bootstrap a project:
+
+### 1. Interactive (recommended)
+
+Just tell the AI:
+
+> "I want to start writing a novel"
+
+It will run a short Q&A (genre, main characters, core conflict, target length, special requirements) and pre-fill `plans/global_plan.md`, `plans/setting/{characters,world}.md`, and `plans/chapters/ch01_plan.md` from your answers. See [docs/onboarding.md](docs/onboarding.md) for the full question sequence.
+
+### 2. Script (manual / advanced)
+
+If you'd rather create the skeleton yourself and fill it in later, run:
 
 ```bash
-python scripts/init_novel.py <target_directory>           # default: skip-existing
+python scripts/init_novel.py <target_directory>           # default: create missing files only
 python scripts/init_novel.py <target_directory> --dry-run # preview only
 python scripts/init_novel.py <target_directory> --force   # overwrite existing files
 ```
+
+The script only copies `assets/template/` into `<target_directory>` — you still need to fill in the outline, character cards, world setting, and style references before the AI can start writing.
 
 ## 🤝 Compatibility
 

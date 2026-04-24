@@ -27,6 +27,8 @@
 | **Cursor** | Claude 4.5 Opus |
 | **Claude Code** | Claude 4.5 Opus |
 
+同样测试过写作效果不错的模型：**GLM-5.1**、**MiMo-V2.5-Pro**，可在任何兼容 Skills 的客户端中使用。
+
 > 💡 **提示**：使用更强大的模型可以获得更好的长篇叙事连贯性和细节描写效果。
 
 ## ✨ 特性
@@ -81,11 +83,12 @@ deep-novel-system/
 │   ├── memory_management.md
 │   ├── reference_usage.md
 │   ├── feedback_loop.md
-│   └── onboarding.md
-├── references/           # 用户提供的范文与风格素材
+│   └── onboarding.md     # 首次使用交互式引导流程
 └── scripts/
     └── init_novel.py     # 项目初始化脚本
 ```
+
+> 说明：`references/` 只存在于**每个用户项目**中（由模板复制生成），存放用户自己的风格范文，本技能仓库不包含该目录。
 
 ## 📚 工作流
 
@@ -116,13 +119,27 @@ deep-novel-system/
 
 ## 🛠️ 项目初始化
 
-使用初始化脚本创建新项目：
+有两种初始化方式：
+
+### 1. 交互式（推荐）
+
+直接对 AI 说：
+
+> "我想开始写小说"
+
+AI 会进行一轮简短问答（类型、主要角色、核心冲突、预计篇幅、特殊要求），并根据你的回答自动填充 `plans/global_plan.md`、`plans/setting/{characters,world}.md` 以及 `plans/chapters/ch01_plan.md`。完整问答序列详见 [docs/onboarding.md](docs/onboarding.md)。
+
+### 2. 脚本（手动 / 进阶）
+
+如果你更愿意先生成骨架再自己填充，可运行：
 
 ```bash
 python scripts/init_novel.py <目标目录>           # 默认：仅创建缺失文件
 python scripts/init_novel.py <目标目录> --dry-run # 仅预览
 python scripts/init_novel.py <目标目录> --force   # 显式确认覆盖（用于重置）
 ```
+
+脚本只会把 `assets/template/` 复制到 `<目标目录>` —— 你仍然需要手动填充大纲、角色卡、世界观、风格范文，AI 才能开始写作。
 
 ## 🤝 兼容性
 
