@@ -1,0 +1,14 @@
+# 项目进度状态机。详见 docs/workflow.md。
+# AI 在每次写作开始时读取此文件确定从哪里继续；写完一节后必须更新。
+project: ""
+current:
+  chapter: 1
+  section: 1
+last_completed:
+  chapter: 0
+  section: 0
+  draft: ""
+  memory: ""
+  completed_at: ""
+requirements_version: ""
+notes: ""

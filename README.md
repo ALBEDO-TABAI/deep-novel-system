@@ -10,7 +10,7 @@
   <img src="https://img.shields.io/badge/License-MIT-yellow" alt="License">
 </p>
 
-A high-quality novel writing skill designed for **Claude**, specializing in narratives that require detailed sensory descriptions, complex plot management, and consistent character psychology.
+A high-quality long-form novel writing skill designed for **Claude**, specializing in complex narratives, sensory descriptions, cross-chapter memory management, and feedback loops. Supports multiple genres and mature themes when authorized by the user.
 
 ## 🎯 About
 
@@ -30,11 +30,12 @@ This skill has been tested on **Antigravity** with excellent results. Recommende
 
 ## ✨ Features
 
-- 📖 **Structured Writing Workflow** - Complete creation process from outline to chapters
-- 🧠 **Memory Management System** - Cross-chapter character state and relationship tracking
-- 🔄 **Feedback Loop Mechanism** - Iterative quality optimization
-- 📁 **Project Templates** - Quick initialization for new novel projects
-- 🎭 **Multi-genre Support** - Suitable for Horror fiction, erotic fiction, light novels, deep narratives, etc.
+- 📖 **Structured Writing Workflow** - Complete creation process from outline to chapters, with truncation detection and recovery
+- 🧠 **Memory Management System** - Cross-chapter state tracking with YAML-schema'd memory blocks
+- 🔄 **Feedback Loop Mechanism** - Versioned rules with archive flow for long-running projects
+- 📁 **Project Templates** - Idempotent init script (default: skip-existing; supports `--dry-run` / `--force`)
+- 🗂️ **Project State Machine** - `state.yaml` tracks current chapter/section so multi-session work stays consistent
+- 🎭 **Multi-genre Support** - Suitable for horror, mature/erotic, light novels, deep narratives, etc.
 
 ## 🚀 Quick Start
 
@@ -66,19 +67,21 @@ deep-novel-system/
 ├── README_zh.md          # Chinese version
 ├── LICENSE               # MIT License
 ├── assets/
-│   └── template/         # Project template
-│       ├── config/       # Writing configuration
-│       ├── drafts/       # Chapter drafts
-│       ├── memory/       # Memory files
-│       ├── plans/        # Outline plans
-│       ├── references/   # Reference materials
-│       └── feedback/     # Feedback records
-├── references/           # Workflow reference docs
+│   └── template/         # Project template (copied by init_novel.py)
+│       ├── config/instruction.md
+│       ├── drafts/
+│       ├── memory/
+│       ├── plans/{chapters,setting}/
+│       ├── references/
+│       ├── feedback/{requirements.md,archive/}
+│       └── state.yaml
+├── docs/                 # Skill's own rule docs (do NOT use as style references)
 │   ├── workflow.md       # Long novel writing process
 │   ├── memory_management.md
 │   ├── reference_usage.md
 │   ├── feedback_loop.md
 │   └── onboarding.md
+├── references/           # User-supplied style samples / analyses
 └── scripts/
     └── init_novel.py     # Project initialization script
 ```
@@ -87,30 +90,37 @@ deep-novel-system/
 
 ### 1. Long Novel Writing Process
 
-See [workflow.md](references/workflow.md)
+See [docs/workflow.md](docs/workflow.md)
 
 **Key Stages**:
 1. **Input Analysis** - Read previous chapters, outlines, and requirements
-2. **Drafting** - Write content in blocks (e.g., `CH01 SEC01`)
+2. **Drafting** - Write content in blocks (e.g., `CH01 SEC01`), with truncation detection and append-style continuation
 3. **Review & Polish** - Check against style guidelines
+4. **State Update** - Advance `state.yaml`
 
 ### 2. Memory Management
 
-See [memory_management.md](references/memory_management.md)
+See [docs/memory_management.md](docs/memory_management.md)
 
 - Update `memory/` files after major events
-- Maintain character states and relationship maps
+- Each block uses YAML front-matter (chapter / section / irreversible_changes / ...)
+- Future scripts can validate consistency from these structured fields
 
 ### 3. Feedback Loop
 
-See [feedback_loop.md](references/feedback_loop.md)
+See [docs/feedback_loop.md](docs/feedback_loop.md)
+
+- Each rule carries `id` / `added` / `last_hit` metadata
+- Periodic archive flow keeps `requirements.md` lean for long-running projects
 
 ## 🛠️ Project Initialization
 
 Create a new project using the initialization script:
 
 ```bash
-python scripts/init_novel.py <target_directory>
+python scripts/init_novel.py <target_directory>           # default: skip-existing
+python scripts/init_novel.py <target_directory> --dry-run # preview only
+python scripts/init_novel.py <target_directory> --force   # overwrite existing files
 ```
 
 ## 🤝 Compatibility

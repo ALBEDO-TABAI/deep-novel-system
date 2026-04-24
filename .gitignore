@@ -6,6 +6,11 @@ assets/template/plans/*
 assets/template/references/*
 !assets/template/*/README.md
 !assets/template/*/.gitkeep
+!assets/template/**/.gitkeep
+!assets/template/feedback/requirements.md
+!assets/template/feedback/archive/
+!assets/template/plans/chapters/
+!assets/template/plans/setting/
 
 # Python
 __pycache__/
